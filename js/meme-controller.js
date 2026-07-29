@@ -18,17 +18,30 @@ function renderMeme(){
             ctx.font = `${line.size}px Arial`
             ctx.fillStyle = line.color
             ctx.textAlign = 'center'
-            ctx.fillText(line.txt, canvas.width / 2, 50 * (idx + 1))
-            if(idx === meme.selectedLineIdx){
-                const textWidth = ctx.measureText(line.txt).width
-                const textHeight = line.size
 
-                const rectX = canvas.width / 2 - textWidth / 2
-                const rectY = 50 * (idx + 1) - textHeight
+            const x = canvas.width / 2
+            const y = 50 * (idx + 1)
+
+            const textWidth = ctx.measureText(line.txt).width
+            const textHeight = line.size
+
+            const rectX = x - textWidth / 2
+            const rectY = y - textHeight
+
+            line.x = rectX
+            line.y = rectY
+            line.width = textWidth
+            line.height = textHeight
+
+            ctx.fillText(line.txt, x, y)
+
+
+            if(idx === meme.selectedLineIdx){
 
                 ctx.lineWidth = 3 
                 ctx.strokeRect(rectX , rectY, textWidth + 5, textHeight + 5)
             }
+
         })
     }
 }
@@ -88,4 +101,29 @@ function updateEditor(){
 
     elTxtInput.value = meme.lines[meme.selectedLineIdx].txt
     elColorInput.value = meme.lines[meme.selectedLineIdx].color
+}
+
+function initCanvas(){
+    const elCanvas = document.querySelector('.meme-canvas')
+    elCanvas.addEventListener('click', onCanvasClick)
+}
+
+function onCanvasClick(ev){
+    const meme = getMeme()
+
+    const clickX = ev.offsetX
+    const clickY = ev.offsetY
+
+    meme.lines.forEach((line, idx) => {
+        if(
+            clickX >= line.x &&
+            clickX <= line.x + line.width &&
+            clickY >= line.y &&
+            clickY <= line.y + line.height
+        ) {
+            meme.selectedLineIdx = idx
+            updateEditor()
+            renderMeme()
+        }
+    })
 }

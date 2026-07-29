@@ -7,12 +7,20 @@ var gMeme = {
             {
                 txt: 'Make iran great agein',
                 size: 35,
-                color: 'red'
+                color: 'red',
+                x: null,
+                y: null,
+                width: null,
+                height: null
             },
             {
                 txt: 'this is line 2',
                 size: 35,
-                color: 'blue'
+                color: 'blue',
+                x: null,
+                y: null,
+                width: null,
+                height: null
             }
     ]
 }
