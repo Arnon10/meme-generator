@@ -32,3 +32,10 @@ function initInput(){
         renderMeme()
     })
 }
+
+function onDownloadMeme() {
+    const canvas = document.querySelector('.meme-canvas')
+    const elDownload = document.querySelector('.download-link')
+
+    elDownload.href = canvas.toDataURL('image/jpeg')
+}
