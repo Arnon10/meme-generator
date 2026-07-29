@@ -6,7 +6,10 @@ var gImgs = [
             ]
 
 
-
 function getImgs(){
     return gImgs
+}
+
+function setImg(imgId){
+    gMeme.selectedImgId = imgId
 }

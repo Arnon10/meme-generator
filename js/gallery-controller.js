@@ -5,7 +5,12 @@ function renderGallery(){
     const imgs = getImgs()
 
     const galleryImgs = imgs.map(img => {
-        return `<img class="gallery-img gallery-img${img.id}" src="${img.url}">`
+        return `<img  onclick="onImgSelect(${img.id})" class="gallery-img gallery-img${img.id}" src="${img.url}">`
     })
     elGallery.innerHTML = galleryImgs.join('')
+}
+
+function onImgSelect(imgId){
+    setImg(imgId)
+    renderMeme()
 }
