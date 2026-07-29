@@ -23,3 +23,11 @@ function setLineTxt(txt){
 function setLineColor(color){
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
+
+function increaseFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size += 2
+}
+
+function decreaseFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size -= 2
+}

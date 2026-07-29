@@ -25,6 +25,8 @@ function renderMeme(){
 function initInput(){
         const elTxtInput = document.querySelector('.text-input')
         const elColorInput = document.querySelector('.color-input')
+        const elIncreaseFontBtn = document.querySelector('.increase-font-btn')
+        const elDecreaseFontBtn = document.querySelector('.decrease-font-btn')
 
         setLineTxt(elTxtInput.value)
         setLineColor(elColorInput.value)
@@ -36,6 +38,16 @@ function initInput(){
 
         elColorInput.addEventListener('input', function () {
             setLineColor(elColorInput.value)
+            renderMeme()
+        })
+
+        elIncreaseFontBtn.addEventListener('click', function () {
+            increaseFont()
+            renderMeme()
+        })
+
+        elDecreaseFontBtn.addEventListener('click', function () {
+            decreaseFont()
             renderMeme()
         })
 }
