@@ -19,6 +19,16 @@ function renderMeme(){
             ctx.fillStyle = line.color
             ctx.textAlign = 'center'
             ctx.fillText(line.txt, canvas.width / 2, 50 * (idx + 1))
+            if(idx === meme.selectedLineIdx){
+                const textWidth = ctx.measureText(line.txt).width
+                const textHeight = line.size
+
+                const rectX = canvas.width / 2 - textWidth / 2
+                const rectY = 50 * (idx + 1) - textHeight
+
+                ctx.lineWidth = 3 
+                ctx.strokeRect(rectX , rectY, textWidth + 5, textHeight + 5)
+            }
         })
     }
 }
@@ -63,4 +73,19 @@ function onDownloadMeme() {
 function onAddLine(){
     addLine()
     renderMeme()
+}
+
+function onSwitchLine(){
+    switchLine()
+    updateEditor()
+    renderMeme()
+}
+
+function updateEditor(){
+    const meme = getMeme()
+    const elTxtInput = document.querySelector('.text-input')
+    const elColorInput = document.querySelector('.color-input')
+
+    elTxtInput.value = meme.lines[meme.selectedLineIdx].txt
+    elColorInput.value = meme.lines[meme.selectedLineIdx].color
 }

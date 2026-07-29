@@ -46,3 +46,10 @@ function addLine(){
                 }
         )
 }
+
+function switchLine(){
+    gMeme.selectedLineIdx += 1
+    if(gMeme.selectedLineIdx === gMeme.lines.length){
+        gMeme.selectedLineIdx = 0
+    }
+}
