@@ -8,38 +8,59 @@
 </head>
 <body onload="onInit()">
 
-    <!-- gallery page -->
-    <section class="gallery">
-        <h1>this is the gallery</h1>
-        <div class="gallery-contant">
+    <header class="main-header">
+        <h1>Meme generator</h1>
 
-        </div>
-    </section>
+        <nav>
+            <button class="nav-btn btn" onclick="onShowGallery()">Gallery</button>
+            <button class="nav-btn btn" onclick="onShowEditor()">Edit meme</button>
+        </nav>
+    </header>
 
-    <!-- edit page -->
-    <section class="editor">
-        <h1>this is the where you edit your meme</h1>
-        <div class="editor-contant">
+    <main class="main-layout">
 
-            <input type="text" class="text-input" value="Add your text here">
-            <input type="color" class="color-input" value="#ffffff">
-            <button class="increase-font-btn btn">A+</button>
-            <button class="decrease-font-btn btn">A-</button>
-            <button class="add-line-btn btn" onclick="onAddLine()">Add line</button>
-            <button class="switch-line-btn btn" onclick="onSwitchLine()">switch line</button>
+                <!-- gallery page -->
+        <section class="gallery">
+            <h1>Gallery</h1>
+            <div class="gallery-contant">
 
-            <canvas class="meme-canvas"></canvas>
+            </div>
+        </section>
 
-            <a 
-                class="download-link"
-                href="#"
-                download="my-meme.jpg"
-                onclick="onDownloadMeme()">
-                Download
-            </a>
-        </div>
+                <!-- edit page -->
+        <section class="editor">
+            <h1>Edit yor meme</h1>
+            <div class="editor-contant">
+                <div class="canvas-container">
+                    <canvas class="meme-canvas"></canvas>
+                </div>
+                
+                <div class="editor-container">
+                    <input type="text" class="text-input" value="Add your text here">
+                    <input type="color" class="color-input" value="#ffffff">
 
-    </section>
+                    <button class="increase-font-btn btn">A+</button>
+                    <button class="decrease-font-btn btn">A-</button>
+
+                    <button class="add-line-btn btn" onclick="onAddLine()">Add line</button>
+                    <button class="switch-line-btn btn" onclick="onSwitchLine()">switch line</button>
+
+                    <a 
+                        class="download-link"
+                        href="#"
+                        download="my-meme.jpg"
+                        onclick="onDownloadMeme()">
+                        Download
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+
+
 
 
     <script src="js/util.js"></script>
