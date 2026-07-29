@@ -5,18 +5,9 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
             {
-                txt: 'Make iran great agein',
+                txt: null,
                 size: 35,
-                color: 'red',
-                x: null,
-                y: null,
-                width: null,
-                height: null
-            },
-            {
-                txt: 'this is line 2',
-                size: 35,
-                color: 'blue',
+                color: null,
                 x: null,
                 y: null,
                 width: null,
