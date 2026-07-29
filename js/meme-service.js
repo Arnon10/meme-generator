@@ -8,6 +8,11 @@ var gMeme = {
                 txt: 'Make iran great agein',
                 size: 35,
                 color: 'red'
+            },
+            {
+                txt: 'this is line 2',
+                size: 35,
+                color: 'blue'
             }
     ]
 }
@@ -30,4 +35,14 @@ function increaseFont(){
 
 function decreaseFont(){
     gMeme.lines[gMeme.selectedLineIdx].size -= 2
+}
+
+function addLine(){
+    gMeme.lines.push(
+                {
+                txt: 'this is another line',
+                size: 35,
+                color: '#ffffff'
+                }
+        )
 }

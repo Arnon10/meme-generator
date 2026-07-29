@@ -14,11 +14,12 @@ function renderMeme(){
 
         ctx.drawImage(img, 0, 0)
 
-        ctx.font = `${meme.lines[0].size}px Arial`
-        ctx.fillStyle = `${meme.lines[0].color}`
-        ctx.textAlign = 'center'
-
-        ctx.fillText(meme.lines[0].txt, canvas.width / 2, 50)
+        meme.lines.forEach((line, idx) => {
+            ctx.font = `${line.size}px Arial`
+            ctx.fillStyle = line.color
+            ctx.textAlign = 'center'
+            ctx.fillText(line.txt, canvas.width / 2, 50 * (idx + 1))
+        })
     }
 }
 
@@ -57,4 +58,9 @@ function onDownloadMeme() {
     const elDownload = document.querySelector('.download-link')
 
     elDownload.href = canvas.toDataURL('image/jpeg')
+}
+
+function onAddLine(){
+    addLine()
+    renderMeme()
 }
