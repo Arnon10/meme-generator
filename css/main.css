@@ -73,23 +73,4 @@
         flex-direction: column;
     }
 
-    .canvas-container {
-        height: 70%;
-    }
-
-    .editor-container {
-        height: 30%;
-    }
-
-}
-
-.editor {
-    height: 100%;
-
-}
-
-.meme-canvas {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
 }
