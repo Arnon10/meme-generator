@@ -1,10 +1,5 @@
 
 
-function onInit(){
-    renderMeme()
-    initInput()
-}
-
 function renderMeme(){
     const canvas = document.querySelector('.meme-canvas')
     const ctx = canvas.getContext('2d')
