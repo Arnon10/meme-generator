@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Meme-generator</title>
 </head>
-<body>
+<body onload="onInit()">
 
     <!-- gallery page -->
     <section class="gallery">
@@ -20,6 +20,7 @@
     <section class="editor">
         <h1>this is the where you edit your meme</h1>
         <div class="editor-contant">
+            <input type="text" class="text-input" value="Add your text here">
             <canvas class="meme-canvas"></canvas>
 
         </div>

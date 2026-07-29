@@ -6,7 +6,7 @@ var gMeme = {
     lines: [
             {
                 txt: 'Make iran great agein',
-                size: 20,
+                size: 35,
                 color: 'red'
             }
     ]
@@ -14,4 +14,8 @@ var gMeme = {
 
 function getMeme(){
     return gMeme
+}
+
+function setLineTxt(txt){
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }

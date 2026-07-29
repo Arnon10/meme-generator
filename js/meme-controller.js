@@ -1,5 +1,10 @@
 
 
+function onInit(){
+    renderMeme()
+    initInput()
+}
+
 function renderMeme(){
     const canvas = document.querySelector('.meme-canvas')
     const ctx = canvas.getContext('2d')
@@ -14,7 +19,7 @@ function renderMeme(){
 
         ctx.drawImage(img, 0, 0)
 
-        ctx.font = `${meme.lines[0].size}px Ariel`
+        ctx.font = `${meme.lines[0].size}px Arial`
         ctx.fillStyle = `${meme.lines[0].color}`
         ctx.textAlign = 'center'
 
@@ -22,4 +27,13 @@ function renderMeme(){
     }
 }
 
-renderMeme()
+function initInput(){
+        const elInput = document.querySelector('.text-input')
+
+        setLineTxt(elInput.value)
+
+        elInput.addEventListener('input', function () {
+        setLineTxt(elInput.value)
+        renderMeme()
+    })
+}
