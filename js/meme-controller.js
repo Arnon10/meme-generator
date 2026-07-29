@@ -23,14 +23,21 @@ function renderMeme(){
 }
 
 function initInput(){
-        const elInput = document.querySelector('.text-input')
+        const elTxtInput = document.querySelector('.text-input')
+        const elColorInput = document.querySelector('.color-input')
 
-        setLineTxt(elInput.value)
+        setLineTxt(elTxtInput.value)
+        setLineColor(elColorInput.value)
 
-        elInput.addEventListener('input', function () {
-        setLineTxt(elInput.value)
-        renderMeme()
-    })
+        elTxtInput.addEventListener('input', function () {
+            setLineTxt(elTxtInput.value)
+            renderMeme()
+        })
+
+        elColorInput.addEventListener('input', function () {
+            setLineColor(elColorInput.value)
+            renderMeme()
+        })
 }
 
 function onDownloadMeme() {
