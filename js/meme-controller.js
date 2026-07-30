@@ -91,7 +91,10 @@ function onDownloadMeme() {
 }
 
 function onAddLine(){
-    addLine()
+    const elColorInput = document.querySelector('.color-input')
+    const elFontFamSelect = document.querySelector('.font-family-select')
+
+    addLine(elColorInput.value, elFontFamSelect.value)
     switchLine()
     updateEditor()
     renderMeme()
@@ -137,4 +140,14 @@ function onCanvasClick(ev){
             renderMeme()
         }
     })
+}
+
+function onDeleteLine(){
+    DeleteLine()
+
+    const meme = getMeme()
+    if(meme.lines.length > 0){
+        updateEditor()       
+    }
+    renderMeme()
 }
