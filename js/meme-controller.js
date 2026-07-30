@@ -20,7 +20,7 @@ function renderMeme(){
             ctx.textAlign = 'center'
 
             const x = canvas.width / 2
-            const y = 50 * (idx + 1)
+            const y = line.y
 
             const textWidth = ctx.measureText(line.txt).width
             const textHeight = line.size
@@ -29,7 +29,6 @@ function renderMeme(){
             const rectY = y - textHeight
 
             line.x = rectX
-            line.y = rectY
             line.width = textWidth
             line.height = textHeight
 
@@ -143,7 +142,7 @@ function onCanvasClick(ev){
 }
 
 function onDeleteLine(){
-    DeleteLine()
+    deleteLine()
 
     const meme = getMeme()
     if(meme.lines.length > 0){
@@ -163,5 +162,15 @@ function onSavedMemeClick(idx) {
 
     updateEditor()
     onShowEditor()
+    renderMeme()
+}
+
+function onMoveLineUp() {
+    moveLineUp()
+    renderMeme()
+}
+
+function onMoveLineDown() {
+    moveLineDown()
     renderMeme()
 }

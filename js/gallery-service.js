@@ -37,7 +37,7 @@ function setImg(imgId){
             color: null,
             font: null,
             x: null,
-            y: null,
+            y: 50,
             width: null,
             height: null
         }

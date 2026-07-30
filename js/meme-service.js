@@ -10,7 +10,7 @@ var gMeme = {
                 color: null,
                 font: null,
                 x: null,
-                y: null,
+                y: 50,
                 width: null,
                 height: null
             }
@@ -52,7 +52,7 @@ function addLine(color, font){
                 color: color,
                 font: font,
                 x: null,
-                y: null,
+                y: 50 * (gMeme.lines.length + 1),
                 width: null,
                 height: null
                 }
@@ -66,7 +66,7 @@ function switchLine(){
     }
 }
 
-function DeleteLine(){
+function deleteLine(){
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 
     if(gMeme.lines.length === 0) return
@@ -123,4 +123,12 @@ function renderSavedMemes() {
 
         elSavedMemesContent.appendChild(elImg)
     })
+}
+
+function moveLineUp() {
+    gMeme.lines[gMeme.selectedLineIdx].y -= 5
+}
+
+function moveLineDown() {
+    gMeme.lines[gMeme.selectedLineIdx].y += 5
 }
