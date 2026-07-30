@@ -15,7 +15,7 @@ function renderMeme(){
         ctx.drawImage(img, 0, 0)
 
         meme.lines.forEach((line, idx) => {
-            ctx.font = `${line.size}px Arial`
+            ctx.font = `${line.size}px ${line.font}`
             ctx.fillStyle = line.color
             ctx.textAlign = 'center'
 
@@ -51,9 +51,11 @@ function initInput(){
         const elColorInput = document.querySelector('.color-input')
         const elIncreaseFontBtn = document.querySelector('.increase-font-btn')
         const elDecreaseFontBtn = document.querySelector('.decrease-font-btn')
+        const elFontFamSelect = document.querySelector('.font-family-select')
 
-        setLineTxt(elTxtInput.value)
+        setLineTxt(elTxtInput.value) 
         setLineColor(elColorInput.value)
+        changeFont(elFontFamSelect.value)
 
         elTxtInput.addEventListener('input', function () {
             setLineTxt(elTxtInput.value)
@@ -74,6 +76,11 @@ function initInput(){
             decreaseFont()
             renderMeme()
         })
+
+        elFontFamSelect.addEventListener('change', function () {
+            changeFont(elFontFamSelect.value)
+            renderMeme()
+        })
 }
 
 function onDownloadMeme() {
@@ -85,6 +92,8 @@ function onDownloadMeme() {
 
 function onAddLine(){
     addLine()
+    switchLine()
+    updateEditor()
     renderMeme()
 }
 
@@ -98,9 +107,11 @@ function updateEditor(){
     const meme = getMeme()
     const elTxtInput = document.querySelector('.text-input')
     const elColorInput = document.querySelector('.color-input')
+    const elFontFamSelect = document.querySelector('.font-family-select')
 
     elTxtInput.value = meme.lines[meme.selectedLineIdx].txt
     elColorInput.value = meme.lines[meme.selectedLineIdx].color
+    elFontFamSelect.value = meme.lines[meme.selectedLineIdx].font
 }
 
 function initCanvas(){
