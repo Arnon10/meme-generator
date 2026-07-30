@@ -28,4 +28,18 @@ function getImgs(){
 
 function setImg(imgId){
     gMeme.selectedImgId = imgId
+    gMeme.selectedLineIdx = 0
+
+    gMeme.lines = [
+        {
+            txt: 'add your text here',
+            size: 35,
+            color: null,
+            font: null,
+            x: null,
+            y: null,
+            width: null,
+            height: null
+        }
+    ]
 }

@@ -19,5 +19,6 @@ function onImgSelect(imgId){
 function onRandomeMeme(){
     setImg(getRandomInt(1, 18))
     onShowEditor()
+    updateEditor
     renderMeme()
 }

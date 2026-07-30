@@ -151,3 +151,17 @@ function onDeleteLine(){
     }
     renderMeme()
 }
+
+function onSaveMeme(){
+    saveMeme()
+}
+
+function onSavedMemeClick(idx) {
+    const savedMeme = gSavedMemes[idx]
+
+    gMeme = savedMeme.meme
+
+    updateEditor()
+    onShowEditor()
+    renderMeme()
+}

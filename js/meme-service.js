@@ -17,6 +17,9 @@ var gMeme = {
     ]
 }
 
+var gSavedMemes = []
+const SAVED_MEMES_KEY = 'savedMemes'
+
 function getMeme(){
     return gMeme
 }
@@ -71,4 +74,53 @@ function DeleteLine(){
     if (gMeme.selectedLineIdx > 0) {
         gMeme.selectedLineIdx--
     }
+}
+
+
+function saveMeme(){
+    const elCanvas = document.querySelector('.meme-canvas')
+    const canvasData = elCanvas.toDataURL()
+    gSavedMemes.push({
+        img: {
+            id: gMeme.selectedImgId,
+            url: `img/${gMeme.selectedImgId}.jpg`,
+            keywords: ['funny', 'cat']
+        },
+
+        meme: {
+            selectedImgId: gMeme.selectedImgId,
+            selectedLineIdx: gMeme.selectedLineIdx,
+
+            lines: gMeme.lines.map(line => ({
+                txt: line.txt,
+                size: line.size,
+                color: line.color,
+                font: line.font,
+                x: line.x,
+                y: line.y,
+                width: line.width,
+                height: line.height
+            }))
+        },
+
+        canvasData
+    })
+
+    saveToStorage(SAVED_MEMES_KEY, gSavedMemes)
+}
+
+function renderSavedMemes() {
+    const elSavedMemesContent = document.querySelector('.saved-memes-content')
+
+    elSavedMemesContent.innerHTML = ''
+
+    gSavedMemes.forEach((savedMeme, idx) => {
+        const elImg = document.createElement('img')
+
+        elImg.src = savedMeme.canvasData
+
+        elImg.onclick = () => onSavedMemeClick(idx)
+
+        elSavedMemesContent.appendChild(elImg)
+    })
 }
